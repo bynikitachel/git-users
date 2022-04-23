@@ -1,0 +1,20 @@
+.container-initial-state {
+    // height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .search-icon {
+        background: url('../../img/search-icon.svg') no-repeat;
+        background-size: cover;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 47px;
+    }
+    .description-search {
+        color: #808080;
+        font-size: 22px;
+        // width: 210px;
+    }
+}
