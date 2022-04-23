@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    background-color: #0064EB;
+    padding: 16px 41px;
+    .git-icon {
+        background-image: url('../../img/git-icon.svg');
+        height: 40px;
+        width: 41px;
+    }
+    input {
+        background: url('../../img/search-icon.svg') no-repeat scroll 19px;
+        background-color: #fff;
+        padding-left: 44px;
+        width: 500px;
+        height: 40px;
+        margin: 0 0 0 22px;
+        border-radius: 6px;
+        border-style: none;
+    }
+}
