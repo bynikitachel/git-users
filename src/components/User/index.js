@@ -1,4 +1,3 @@
-import RepositoryItem from '../RepositoryItem';
 import State from '../State';
 import PaginatedItems from '../Paginate/PaginatedItems';
 import './index.scss';
@@ -8,9 +7,9 @@ const User = ({ userInfo, userRepos }) => {
     return userRepos && (
         <div className='container-user'>
             <div className='user-info'>
-                <img className='user-avatar' src={userInfo.avatar_url}></img>
+                <img className='user-avatar' src={userInfo.avatar_url} alt='avatar'></img>
                 <div className='user-name'>{userInfo.name}</div>
-                <div className='user-nickname'><a href={userInfo.html_url} target="_blank">{userInfo.login}</a></div>
+                <div className='user-nickname'><a href={userInfo.html_url} target="_blank" rel="noreferrer">{userInfo.login}</a></div>
                 <div className='container-user-followers'>
                     <div className='container-user-followers'>
                         <div className='user-followers-icon' />
