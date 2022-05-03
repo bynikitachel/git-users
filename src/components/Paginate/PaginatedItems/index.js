@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import Items from '../Items';
 import './index.scss';
