@@ -12,6 +12,9 @@ const PaginatedItems = ({ itemsPerPage, userRepos }) => {
     // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
 
+    const paginateText = `${itemOffset + 1}-${(itemOffset + itemsPerPage) > userRepos.length ? userRepos.length : itemOffset + itemsPerPage
+        } of ${userRepos.length} items`;
+
     useEffect(() => {
         // Fetch items from another resources.
         const endOffset = itemOffset + itemsPerPage;
@@ -28,26 +31,29 @@ const PaginatedItems = ({ itemsPerPage, userRepos }) => {
     return (
         <>
             <Items currentItems={currentItems} />
-            <ReactPaginate
-                nextLabel="next >"
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={2}
-                pageCount={pageCount}
-                previousLabel="< previous"
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousClassName="page-item"
-                previousLinkClassName="page-link"
-                nextClassName="page-item"
-                nextLinkClassName="page-link"
-                breakLabel="..."
-                breakClassName="page-item"
-                breakLinkClassName="page-link"
-                containerClassName="pagination"
-                activeClassName="active"
-                renderOnZeroPageCount={null}
-            />
+            <div className='container-paginate'>
+                <div className='paginate-info'>{paginateText}</div>
+                <ReactPaginate
+                    nextLabel=""
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel=""
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                />
+            </div>
         </>
     );
 }

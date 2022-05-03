@@ -1,18 +1,12 @@
 .App {
     text-align: center;
-    /* font-family: "Inter"; */
     font-style: normal;
     font-weight: 400;
 }
 
 .container {
     margin: 0 auto;
-    // width: 70%;
     min-height: 100vh;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
 }
 
 @media (max-width: 540px) {
