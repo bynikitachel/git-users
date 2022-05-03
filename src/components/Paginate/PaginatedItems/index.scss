@@ -1,0 +1,58 @@
+// @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+#container {
+    margin: 1rem;
+}
+
+.items {
+    margin-bottom: 1rem;
+}
+
+.pagination {
+    position: absolute;
+    right: 78px;
+    bottom: 35px;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+*,
+ ::after,
+ ::before {
+    box-sizing: border-box;
+}
+
+// .page-item {
+//     background-image: url('../../../img/arrow.svg');
+//     height: 20px;
+//     width: 20px;
+// }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.page-item:not(:first-child) .page-link {
+    margin-left: -1px;
+}
+
+.page-link {
+    padding: .375rem .75rem;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #0d6efd;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-top-color: rgb(222, 226, 230);
+    border-right-color: rgb(222, 226, 230);
+    border-bottom-color: rgb(222, 226, 230);
+    border-left-color: rgb(222, 226, 230);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}

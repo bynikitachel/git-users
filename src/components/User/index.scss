@@ -1,3 +1,83 @@
 .container-user {
-    padding: 39px 57px;
+    text-align: start;
+    display: flex;
+    // justify-content: space-between;
+    padding: 111px 57px;
+    .user-info {
+        margin-right: 100px;
+    }
+    .user-avatar {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+    }
+    .user-name {
+        margin: 29px 0 12px;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 130%;
+    }
+    .user-nickname {
+        margin-bottom: 25px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        a {
+            text-decoration: none;
+            color: #0064EB;
+        }
+    }
+    .container-user-followers {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        .user-followers-icon {
+            background-image: url('../../img/user-followers-icon.svg');
+            background-size: cover;
+            width: 22px;
+            height: 14px;
+            margin-right: 10px;
+        }
+        .user-following-icon {
+            background-image: url('../../img/user-following-icon.svg');
+            background-size: cover;
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+        }
+    }
+    .container-user-repositories {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .user-repositories {
+            height: 100%;
+            width: 100%;
+            .repositories-header {
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 130%;
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .container-user {
+        padding: 100px 25px 50px;
+        flex-direction: column;
+        .user-info {
+            margin-right: 0;
+        }
+        .user-avatar {
+            width: 270px;
+            height: 270px;
+        }
+    }
 }

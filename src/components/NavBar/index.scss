@@ -11,8 +11,8 @@
         height: 40px;
         width: 41px;
     }
-    input {
-        background: url('../../img/search-icon.svg') no-repeat scroll 19px;
+    .input {
+        background: url('../../img/search-icon.svg') no-repeat 19px;
         background-color: #fff;
         padding-left: 44px;
         width: 500px;
@@ -20,5 +20,17 @@
         margin: 0 0 0 22px;
         border-radius: 6px;
         border-style: none;
+        outline: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .navbar {
+        padding: 10px 10px;
+        .input {
+            width: auto;
+            margin: 0 0 0 10px;
+            flex: content;
+        }
     }
 }
