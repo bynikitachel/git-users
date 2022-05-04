@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import NavBar from './components/NavBar';
-import State from './components/State';
+import MessageComponent from './components/MessageComponent';
 import User from './components/User';
 import Loader from './components/Loader';
 import './App.scss';
@@ -26,7 +26,6 @@ function App() {
             setLoading(false);
           } else {
             response.json().then((res) => {
-              console.log(res);
               userInfo = res;
               fetch(`https://api.github.com/users/${user}/repos`)
                 .then(response => {
@@ -58,7 +57,7 @@ function App() {
           <Loader /> :
           (userInfo && !invalidUser) ?
             <User userInfo={userInfo.userInfo} userRepos={userInfo.userRepos} /> :
-            <State containerClass='container-state-user' icon={`icon ${stateIcon}`} description={stateText} />
+            <MessageComponent containerClass='container-state-user' icon={`icon ${stateIcon}`} description={stateText} />
         }
       </div>
     </div>

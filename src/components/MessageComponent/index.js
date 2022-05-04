@@ -1,6 +1,6 @@
 import './index.scss';
 
-const State = ({ containerClass, description, icon }) => {
+const MessageComponent = ({ containerClass, description, icon }) => {
     return (
         <div className={`container-state ${containerClass}`}>
             <div className={icon} />
@@ -9,4 +9,4 @@ const State = ({ containerClass, description, icon }) => {
     )
 }
 
-export default State;
+export default MessageComponent;

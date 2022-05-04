@@ -1,9 +1,9 @@
-import State from '../State';
+import MessageComponent from '../MessageComponent';
 import PaginatedItems from '../Paginate/PaginatedItems';
 import './index.scss';
 
 const User = ({ userInfo, userRepos }) => {
-    console.log(userRepos);
+
     return userRepos && (
         <div className='container-user'>
             <div className='user-info'>
@@ -27,7 +27,11 @@ const User = ({ userInfo, userRepos }) => {
                         <div className='repositories-header'>Repositories ({userRepos && userRepos.length})</div>
                         <PaginatedItems itemsPerPage={4} userRepos={userRepos} />
                     </div> :
-                    <State containerClass='container-state-rep' icon='rep-icon' description='Repository not found' />
+                    <MessageComponent
+                        containerClass='container-state-rep'
+                        icon='rep-icon'
+                        description='Repository not found'
+                    />
                 }
             </div>
         </div>
