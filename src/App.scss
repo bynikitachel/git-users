@@ -2,6 +2,7 @@
     text-align: center;
     font-style: normal;
     font-weight: 400;
+    margin: 0 auto;
 }
 
 .container {
@@ -12,5 +13,11 @@
 @media (max-width: 540px) {
     .container {
         height: auto;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 70%;
     }
 }

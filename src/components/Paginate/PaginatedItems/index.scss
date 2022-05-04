@@ -89,9 +89,18 @@
 
 @media (max-width: 540px) {
     .container-paginate {
-        position: static;
         flex-direction: column;
-        right: 0px;
-        bottom: 0px;
+        .paginate-info {
+            margin: 15px 0 0 0;
+        }
+    }
+}
+
+@media (max-width: 840px) {
+    .container-paginate {
+        flex-direction: column;
+        .paginate-info {
+            margin: 15px 0 0 0;
+        }
     }
 }
