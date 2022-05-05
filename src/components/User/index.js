@@ -3,34 +3,36 @@ import PaginatedItems from '../Paginate/PaginatedItems';
 import './index.scss';
 
 const User = ({ userInfo, userRepos }) => {
+    const notFoundText = "Repository not found";
+    const COUNT_REPOS_PER_PAGE = 4;
 
     return userRepos && (
-        <div className='container-user'>
+        <div className='user-container'>
             <div className='user-info'>
-                <img className='user-avatar' src={userInfo.avatar_url} alt='avatar'></img>
-                <div className='user-name'>{userInfo.name}</div>
-                <div className='user-nickname'><a href={userInfo.html_url} target="_blank" rel="noreferrer">{userInfo.login}</a></div>
-                <div className='container-user-followers'>
-                    <div className='container-user-followers'>
-                        <div className='user-followers-icon' />
-                        <div className='user-followers'>{userInfo.followers} followers</div>
+                <img className='avatar' src={userInfo.avatar_url} alt='avatar' />
+                <div className='name'>{userInfo.name}</div>
+                <div className='nickname'><a href={userInfo.html_url} target="_blank" rel="noreferrer">{userInfo.login}</a></div>
+                <div className='followers-container'>
+                    <div className='followers-container'>
+                        <div className='icon-followers' />
+                        <div className='followers'>{userInfo.followers} followers</div>
                     </div>
-                    <div className='container-user-followers'>
-                        <div className='user-following-icon' />
-                        <div className='user-following'>{userInfo.followers} following</div>
+                    <div className='following-container'>
+                        <div className='icon-following' />
+                        <div className='following'>{userInfo.followers} following</div>
                     </div>
                 </div>
             </div>
-            <div className='container-user-repositories'>
-                {userRepos.length && !!userRepos.length ?
-                    <div className='user-repositories'>
-                        <div className='repositories-header'>Repositories ({userRepos && userRepos.length})</div>
-                        <PaginatedItems itemsPerPage={4} userRepos={userRepos} />
+            <div className='repositories-container'>
+                {userRepos.length && !!userRepos.length ?  /*можно вынести в переменную условие*/
+                    <div className='repositories'>
+                        <div className='header'>Repositories ({userRepos && userRepos.length})</div>
+                        <PaginatedItems itemsPerPage={COUNT_REPOS_PER_PAGE} userRepos={userRepos} />
                     </div> :
                     <MessageComponent
-                        containerClass='container-state-rep'
+                        containerClass='message-component-rep-container'
                         icon='rep-icon'
-                        description='Repository not found'
+                        description={notFoundText}
                     />
                 }
             </div>

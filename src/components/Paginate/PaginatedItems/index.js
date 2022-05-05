@@ -5,26 +5,24 @@ import './index.scss';
 
 const PaginatedItems = ({ itemsPerPage, userRepos }) => {
 
-    // We start with an empty list of items.
     const [currentItems, setCurrentItems] = useState(null);
     const [pageCount, setPageCount] = useState(0);
-    // Here we use item offsets; we could also use page offsets
-    // following the API or data you're working with.
     const [itemOffset, setItemOffset] = useState(0);
 
-    const paginateText = `${itemOffset + 1}-${(itemOffset + itemsPerPage) > userRepos.length ? userRepos.length : itemOffset + itemsPerPage
-        } of ${userRepos.length} items`;
+    const nextItems = itemOffset + itemsPerPage
+    const totalRepos = userRepos.length;
+    const firstItemIndex = itemOffset + 1;
+    const lastItemIndex = nextItems > totalRepos ? totalRepos : nextItems;
+
+    const paginateText = `${firstItemIndex}-${lastItemIndex} of ${totalRepos} items`;
 
     useEffect(() => {
-        // Fetch items from another resources.
-        const endOffset = itemOffset + itemsPerPage;
-        setCurrentItems(userRepos.slice(itemOffset, endOffset));
-        setPageCount(Math.ceil(userRepos.length / itemsPerPage));
-    }, [itemOffset, itemsPerPage, userRepos]);
+        setCurrentItems(userRepos.slice(itemOffset, nextItems));
+        setPageCount(Math.ceil(totalRepos / itemsPerPage));
+    }, [itemOffset, itemsPerPage, userRepos, nextItems, totalRepos]);
 
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % userRepos.length;
+    const handlePageClick = (e) => {
+        const newOffset = (e.selected * itemsPerPage) % totalRepos;
         setItemOffset(newOffset);
     };
 
@@ -36,7 +34,7 @@ const PaginatedItems = ({ itemsPerPage, userRepos }) => {
                 <ReactPaginate
                     nextLabel=""
                     onPageChange={handlePageClick}
-                    pageRangeDisplayed={3}
+                    pageRangeDisplayed={3}  /*3 и 1 можно вынести в файл с константами*/
                     marginPagesDisplayed={1}
                     pageCount={pageCount}
                     previousLabel=""

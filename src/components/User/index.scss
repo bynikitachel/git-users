@@ -1,22 +1,22 @@
-.container-user {
+.user-container {
     text-align: start;
     display: flex;
     padding: 111px 57px;
     .user-info {
         margin-right: 100px;
     }
-    .user-avatar {
+    .avatar {
         width: 280px;
         height: 280px;
         border-radius: 50%;
     }
-    .user-name {
+    .name {
         margin: 29px 0 12px;
         font-weight: 600;
         font-size: 26px;
         line-height: 130%;
     }
-    .user-nickname {
+    .nickname {
         margin-bottom: 25px;
         font-weight: 400;
         font-size: 18px;
@@ -26,21 +26,22 @@
             color: #0064EB;
         }
     }
-    .container-user-followers {
+    .followers-container,
+    .following-container {
         display: flex;
         width: 100%;
         align-items: center;
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        .user-followers-icon {
+        .icon-followers {
             background-image: url('../../img/user-followers-icon.svg');
             background-size: cover;
             width: 22px;
             height: 14px;
             margin-right: 10px;
         }
-        .user-following-icon {
+        .icon-following {
             background-image: url('../../img/user-following-icon.svg');
             background-size: cover;
             width: 16px;
@@ -48,16 +49,16 @@
             margin-right: 10px;
         }
     }
-    .container-user-repositories {
+    .repositories-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        .user-repositories {
+        .repositories {
             height: 100%;
             width: 100%;
-            .repositories-header {
+            .header {
                 font-weight: 600;
                 font-size: 32px;
                 line-height: 130%;
@@ -74,23 +75,22 @@
 }
 
 @media (max-width: 768px) {
-    .container-user {
+    .user-container {
         padding: 100px 25px 50px;
         flex-direction: column;
         .user-info {
             margin-right: 0;
         }
-        .user-avatar {
+        .avatar {
             width: 270px;
             height: 270px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
-        .container-user-repositories {
+        .repositories-container {
             margin-top: 40px;
-            .user-repositories {
-                .repositories-header {
+            .repositories {
+                .header {
                     font-size: 20px;
                 }
             }

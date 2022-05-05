@@ -29,7 +29,7 @@ function App() {
               userInfo = res;
               fetch(`https://api.github.com/users/${user}/repos`)
                 .then(response => {
-                  if (response.ok) {
+                  if (response.status === 200) {
                     response.json().then((res) => {
                       const info = { userInfo, userRepos: res }
                       setUserInfo(info);
@@ -38,7 +38,6 @@ function App() {
                     })
                   }
                 })
-                .catch(() => { })
             })
           }
         })
@@ -57,7 +56,7 @@ function App() {
           <Loader /> :
           (userInfo && !invalidUser) ?
             <User userInfo={userInfo.userInfo} userRepos={userInfo.userRepos} /> :
-            <MessageComponent containerClass='container-state-user' icon={`icon ${stateIcon}`} description={stateText} />
+            <MessageComponent containerClass='message-component-user-container' icon={`icon ${stateIcon}`} description={stateText} />
         }
       </div>
     </div>

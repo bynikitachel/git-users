@@ -1,4 +1,4 @@
-.container-state {
+.message-component-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,16 +28,16 @@
     }
 }
 
-.container-state-user {
+.message-component-user-container {
     min-height: 100vh;
 }
 
-.container-state-rep {
+.message-component-rep-container {
     width: inherit;
 }
 
 @media (max-width: 540px) {
-    .container-state {
+    .message-component-container {
         .icon {
             background-size: cover;
             width: 40px;
