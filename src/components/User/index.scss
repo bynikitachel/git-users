@@ -26,10 +26,16 @@
             color: #0064EB;
         }
     }
+    .follow-container {
+        display: flex;
+        width: 100%;
+    }
+    .followers-container {
+        margin-right: 20px;
+    }
     .followers-container,
     .following-container {
         display: flex;
-        width: 100%;
         align-items: center;
         font-weight: 400;
         font-size: 16px;
@@ -62,7 +68,7 @@
                 font-weight: 600;
                 font-size: 32px;
                 line-height: 130%;
-                margin-bottom: 12px;
+                margin-bottom: 29px;
             }
             .rep-name {
                 a {

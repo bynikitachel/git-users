@@ -3,45 +3,24 @@ import NavBar from './components/NavBar';
 import MessageComponent from './components/MessageComponent';
 import User from './components/User';
 import Loader from './components/Loader';
+import getUserData from './requestApi/getUserData';
+import getUserRepos from './requestApi/getUserRepos';
 import './App.scss';
 
 function App() {
 
   const [user, setUser] = useState('');
-  const [userInfo, setUserInfo] = useState(null);
+  const [userData, setUserInfo] = useState(null);
   const [invalidUser, setInvalidUser] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const isUserData = userData && !invalidUser;
   const stateText = invalidUser ? 'User not found' : 'Start with searching a GitHub user';
   const stateIcon = invalidUser ? 'user-icon' : 'search-icon';
+  const icon = `icon ${stateIcon}`;
 
   const getUser = async (e) => {
-    let userInfo = null;
-    if (e.key === 'Enter') {
-      setLoading(true);
-      fetch(`https://api.github.com/users/${user}`)
-        .then(response => {
-          if (response.status !== 200) {
-            setInvalidUser(true);
-            setLoading(false);
-          } else {
-            response.json().then((res) => {
-              userInfo = res;
-              fetch(`https://api.github.com/users/${user}/repos`)
-                .then(response => {
-                  if (response.status === 200) {
-                    response.json().then((res) => {
-                      const info = { userInfo, userRepos: res }
-                      setUserInfo(info);
-                      setLoading(false);
-                      setInvalidUser(false);
-                    })
-                  }
-                })
-            })
-          }
-        })
-    }
+    getUserData(user, getUserRepos, setUserInfo, setLoading, setInvalidUser, e)
   }
 
   const handleChange = (e) => {
@@ -54,9 +33,9 @@ function App() {
       <div className='container'>
         {loading ?
           <Loader /> :
-          (userInfo && !invalidUser) ?
-            <User userInfo={userInfo.userInfo} userRepos={userInfo.userRepos} /> :
-            <MessageComponent containerClass='message-component-user-container' icon={`icon ${stateIcon}`} description={stateText} />
+          isUserData ?
+            <User userInfo={userData.userInfo} userRepos={userData.userRepos} /> :
+            <MessageComponent containerClass='message-component-user-container' icon={icon} description={stateText} />
         }
       </div>
     </div>
